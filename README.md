@@ -17,11 +17,14 @@
 ---
 
 **1. Introduction**
-- Edge analytics with real-time processing capabilities is chellenging but important and inevitable due to privacy/security concerns. However, edge devices like RaspberryPi are constrained with limited hardware resources, which at times are not sufficient to run complex deep learning models. These models require lot of computational resource and memory due to their size and complex architecture. Therefore, in such scenarios, we optimize the model such that it can run efficiently with reduced inference time critical for real-time analytics. Optimization can be achieved by combination of techniques like quantization and converting trained model into architecture specific lite model. 
+
+Edge analytics with real-time processing capabilities is chellenging but important and inevitable due to privacy/security concerns. However, edge devices like RaspberryPi are constrained with limited hardware resources, which at times are not sufficient to run complex deep learning models. These models require lot of computational resource and memory due to their size and complex architecture. Therefore, in such scenarios, we optimize the model such that it can run efficiently with reduced inference time critical for real-time analytics. Optimization can be achieved by combination of techniques like quantization and converting trained model into architecture specific lite model. 
 
 **2. Running Deep Learning Model On RaspberryPi**
+
 - **This section guide you on how to setup a Raspberry Pi for running PyTorch and deploy a MobileNet v2 image classification model in real time on the CPU.**
--  Set up and activate a virtual environment named "dlonedge" for this experiment (to avoid conflicts in libraries) as below.
+
+-  Set up and activate a virtual environment named "dlonedge" for this experiment (to avoid conflicts in libraries) as below:
   ```bash
   sudo apt install python3-venv
   python3 -m venv dlonedge
@@ -44,14 +47,14 @@
 - **Part 2.** Edit line number 11 as shown below to enable quantization in [sample code](Codes/mobile_net.py) to use quantized version of MobileNetV2 model.
 
   ```bash
-quantize = True
+  quantize = True
   ```
 
-Finally, observe the fps as shown in screenshot below after using quantized model of MobileNetV2. We can now achieve close to 30 fps as required because of smaller footprint of quantized model.
+    Finally, observe the fps as shown in screenshot below after using quantized model of MobileNetV2. We can now achieve close to 30 fps as required because of smaller footprint of quantized model.
 
-  ![image2](https://github.com/user-attachments/assets/7086f300-4edf-4c41-a799-c496001ee1d1)
+    ![image2](https://github.com/user-attachments/assets/7086f300-4edf-4c41-a799-c496001ee1d1)
 
-[Quantization](https://pytorch.org/docs/stable/quantization.html) techniques enable computations and tensor storage at reduced bitwidths compared to floating-point precision. In a quantized model, some or all operations use this lower precision, resulting in a smaller model size and the ability to leverage hardware-accelerated vector operations.
+    [Quantization](https://pytorch.org/docs/stable/quantization.html) techniques enable computations and tensor storage at reduced bitwidths compared to floating-point precision. In a quantized model, some or all operations use this lower precision, resulting in a smaller model size and the ability to leverage hardware-accelerated vector operations.
 
 - **Part 3.** Uncomment lines 57-61 in [sample code](Codes/mobile_net.py) to print the top 10 predictions in real-time as shown in below video.
 
