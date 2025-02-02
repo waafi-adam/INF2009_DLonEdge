@@ -1,9 +1,8 @@
 **Real-time Inference of Deep Learning models on Edge Device**
 
 **Objective:** By the end of this session, participants will understand 
-1. How to run a deep learning model on an edge device (aka raspberryPi) using Pytorch and RTLite Libraries
-2. Deploy and run quantized version of a Large Language Model
-3. [OPtional] How does quantization work and different quantization methods for deep learning models 
+1. How to run a deep learning model on an edge device (aka raspberryPi)
+2. How does quantization work and different quantization methods for deep learning models 
 
 ---
 
@@ -60,3 +59,18 @@ Edge analytics with real-time processing capabilities is chellenging but importa
 
 https://github.com/user-attachments/assets/5ee2a4c8-1988-4021-b194-aa0786a1ebfc
 
+
+**3. Quantization using Pytorch**
+- Neural networks typically use 32-bit floating point precision for activations, weights, and computations. Quantization reduces this precision to smaller data types (like 8-bit integers), decreasing memory and speeding up computation. This compression is not lossless, as lower precision sacrifices dynamic range and resolution. Thus, a balance must be struck between model accuracy and the efficiency gains from quantization.
+
+- In this section, we would learn how to use Pytorch to perform different quantization methods on a neural network architecture. There are two ways in general to quantize a deep learning model:
+
+    1. Post Training Quantization: After we have a trained model, we can convert the model to a quantized model by converting 32 bit floating point weights and activations to 8 bit integer, but we may see some accuracy loss for some types of models.
+    2. Quantization Aware Training: During training, we insert fake quantization operators into the model to simulate the quantization behavior and convert the model to a quantized model after training based on the model with fake quantize operators. This is harder to apply than post-training quantization since it requires retraining the model, but typically gives better accuracy.
+
+- Please refer to [sample jupyter notebook file](Codes/PyTorch_Quantisation.ipynb), which demonstrates how to quantized a pre-trained model using post-training quantization approach as well as quantization aware training. Please run the sample code preferably in google colab if you do not have computer with good hardware specs.
+
+
+**4. Homework and Optional Exercise**
+- Try running quantized version of some large language models (like llama, mixtral etc.) on Raspberry Pi. This [link](https://www.dfrobot.com/blog-13498.html) demonstrates some of the LLMs on Raspberry Pi 4 and 5.
+- Take any complex Deep Learning Model like resnet, mobileNet OR your own architecure and try different quantization methods as explained in section 3. Once deployed on RaspberryPi, Observe the size, performance and speed of the quantized model.
