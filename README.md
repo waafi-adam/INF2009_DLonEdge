@@ -38,11 +38,16 @@
 - Same as last lab, for video capture we’re going to be using OpenCV to stream the video frames. The model we are going to use in this lab is MobileNetV2, which takes in image sizes of 224x224. We are targeting 30fps for the model but we will request a slightly higher framerate of 36 fps than that so there is always enough frames and bandwidth of image pre-processing and model prediction.
 
 - **Part 1.** [sample code](Codes/mobile_net.py) is used to directly load pre-trained MobileNetV2 model, doing model inference and finally, print observed fps as shown in screenshot below.
-![image](https://github.com/drfuzzi/INF2009_VideoAnalytics/assets/52023898/c5987191-27ff-44f9-ac85-d1a673477dc8) 
+
+  ![image1](https://github.com/user-attachments/assets/8e3cf302-45f3-41c9-85a5-a1bd118d30c4)
 
 - **Part 2.** Uncomment lines x-x in [sample code](Codes/mobile_net.py) to use quantized version of MobileNetV2 model and observe the fps as shown in screenshot below.
-![image](https://github.com/drfuzzi/INF2009_VideoAnalytics/assets/52023898/c5987191-27ff-44f9-ac85-d1a673477dc8)
-Quantization (https://pytorch.org/docs/stable/quantization.html) techniques enable computations and tensor storage at reduced bitwidths compared to floating-point precision. In a quantized model, some or all operations use this lower precision, resulting in a smaller model size and the ability to leverage hardware-accelerated vector operations.
+
+  ![image2](https://github.com/user-attachments/assets/7086f300-4edf-4c41-a799-c496001ee1d1)
+
+[Quantization](https://pytorch.org/docs/stable/quantization.html) techniques enable computations and tensor storage at reduced bitwidths compared to floating-point precision. In a quantized model, some or all operations use this lower precision, resulting in a smaller model size and the ability to leverage hardware-accelerated vector operations.
 
 - **Part 3.** Uncomment lines x-x in [sample code](Codes/mobile_net.py) to display the objects being classified in real-time. Below screenshot shows the screen printing classification accuracy of all the class in sorted order.
-![image](https://github.com/drfuzzi/INF2009_VideoAnalytics/assets/52023898/c5987191-27ff-44f9-ac85-d1a673477dc8) 
+
+https://github.com/user-attachments/assets/5ee2a4c8-1988-4021-b194-aa0786a1ebfc
+
